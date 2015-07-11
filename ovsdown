@@ -1,0 +1,8 @@
+#!/bin/sh
+
+BRIDGE=vmnet
+NET_CONFIG=/etc/network/interfaces
+ovs-vsctl --if-exists del-port $BRIDGE $5
+sed -i "/allow-$BRIDGE $5/{N;N;N;N;d}" $NET_CONFIG
+sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' $NET_CONFIG
+
