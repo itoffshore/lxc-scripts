@@ -2,6 +2,7 @@
 
 BRIDGE=vmnet
 NET_CONFIG=/etc/network/interfaces
+# lxc should delete the port but does not yet: https://github.com/lxc/lxc/issues/590
 ovs-vsctl --if-exists del-port $BRIDGE $5 # delete line preceding match + N; following
 sed -i -n '/allow-'$BRIDGE' '$5'/{s/.*//;x;N;N;N;N;N;d;};x;p;${x;p;}' $NET_CONFIG
 
