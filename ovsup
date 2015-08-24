@@ -11,8 +11,9 @@
 
 BRIDGE=vmnet
 NET_CONFIG=/etc/network/interfaces
-ovs-vsctl --may-exist add-br $BRIDGE
-ovs-vsctl --may-exist add-port $BRIDGE $5
+## ovs-vsctl functionality built into lxc now: https://github.com/lxc/lxc/issues/590
+#ovs-vsctl --may-exist add-br $BRIDGE
+#ovs-vsctl --may-exist add-port $BRIDGE $5
 if ! grep "allow-$BRIDGE $5" $NET_CONFIG; then
 cat <<__EOF__>> $NET_CONFIG
 
