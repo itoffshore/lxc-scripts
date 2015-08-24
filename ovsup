@@ -5,9 +5,10 @@
 # lxc.network.type = veth                      ##
 # lxc.network.veth.pair = veth.container-name  ##
 # lxc.network.flags = up                       ##
+# lxc.network.link = vmnet                     ##
 # lxc.network.script.up = /etc/lxc/ovsup       ##
 # lxc.network.script.down = /etc/lxc/ovsdown   ##
-#### do NOT set lxc.network.link = vmnet ########
+#################################################
 
 BRIDGE=vmnet
 NET_CONFIG=/etc/network/interfaces
